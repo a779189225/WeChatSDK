@@ -63,7 +63,6 @@ namespace WeChatRelatedSDK.Merchant
             rsa.ImportParameters(rsaParam);
             var buff = rsa.Encrypt(Encoding.UTF8.GetBytes(text), true);
             return Convert.ToBase64String(buff);
-
             //using (var x509 = new X509Certificate2(publicKey))
             //{
             //    using (var rsa = (RSACryptoServiceProvider)x509.PublicKey.Key)
