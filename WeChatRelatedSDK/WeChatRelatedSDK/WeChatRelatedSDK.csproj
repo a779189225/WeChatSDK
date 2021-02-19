@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>微信相关SDK，包含微信最新的支付，商户开户意愿确认,</Description>
+    <Copyright>阡陌风狸</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>0.0.1</Version>
+    <Company>阡陌风狸</Company>
+    <Authors>阡陌风狸</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="6.0.0-preview.1.21102.12" />
+  </ItemGroup>
+
+</Project>
