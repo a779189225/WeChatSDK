@@ -3,6 +3,9 @@ using WeChatRelatedSDK.Model;
 
 namespace WeChatRelatedSDK.Merchant
 {
+    /// <summary>
+    /// 证书操作类
+    /// </summary>
     public class Certificate
     {
         /// <summary>
