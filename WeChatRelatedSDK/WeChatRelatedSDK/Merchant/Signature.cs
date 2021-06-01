@@ -58,13 +58,21 @@ namespace WeChatRelatedSDK.Merchant
             // NOTE： 私钥不包括私钥文件起始的-----BEGIN PRIVATE KEY-----
             //        亦不包括结尾的-----END PRIVATE KEY-----
             //string key = getpublickey.getkey();
-            byte[] keyData = Convert.FromBase64String(privateKey);
-            using (CngKey cngKey = CngKey.Import(keyData, CngKeyBlobFormat.Pkcs8PrivateBlob))
-            using (RSACng rsa = new RSACng(cngKey))
-            {
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                return Convert.ToBase64String(rsa.SignData(data, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
-            }
+
+            //可移植性方法
+            using var key = RSA.Create();
+            key.ImportPkcs8PrivateKey(Convert.FromBase64String(privateKey), out _);
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            return Convert.ToBase64String(key.SignData(data, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
+
+            //该方法只能在window上使用
+            //byte[] keyData = Convert.FromBase64String(privateKey);
+            //using (var cngKey = CngKey.Import(keyData, CngKeyBlobFormat.Pkcs8PrivateBlob))
+            //using (var rsa = new RSACng(cngKey))
+            //{
+            //    byte[] data = Encoding.UTF8.GetBytes(message);
+            //    return Convert.ToBase64String(rsa.SignData(data, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
+            //}
         }
 
         /// <summary>
@@ -72,6 +80,7 @@ namespace WeChatRelatedSDK.Merchant
         /// </summary>
         /// <param name="Signature">私钥加密串-Wechatpay-Signature</param>
         /// <param name="signSourceString">验签名串-应答时间戳\n应答随机串\n应答报文主体\n</param>
+        /// <param name="publickey">公钥</param>
         /// <returns></returns>
         public static bool VerifySign(string Signature, string signSourceString, string publickey)
         {
@@ -82,11 +91,9 @@ namespace WeChatRelatedSDK.Merchant
             var rsa = new RSACryptoServiceProvider();
             rsa.ImportParameters(rsaParam);
 
-            using (var sha256 = new SHA256CryptoServiceProvider())
-            {
-                var b = rsa.VerifyData(Encoding.UTF8.GetBytes(signSourceString), sha256, Convert.FromBase64String(Signature));
-                return b;
-            }
+            using var sha256 = new SHA256CryptoServiceProvider();
+            var b = rsa.VerifyData(Encoding.UTF8.GetBytes(signSourceString), sha256, Convert.FromBase64String(Signature));
+            return b;
         }
     }
 }

@@ -13,11 +13,6 @@ namespace WeChatRelatedSDK.Merchant
     /// </summary>
     public class Encrypt
     {
-        private static string ALGORITHM = "AES/GCM/NoPadding";
-        private static int TAG_LENGTH_BIT = 128;
-        private static int NONCE_LENGTH_BYTE = 12;
-        private static string AES_KEY = "31ebd073f95a4aa3b1fd1da03fa3d003";
-
         /// <summary>
         /// 解密
         /// </summary>
@@ -28,8 +23,8 @@ namespace WeChatRelatedSDK.Merchant
         /// <returns></returns>
         public static string AesGcmDecrypt(string associatedData, string nonce, string ciphertext, string AES_KEY)
         {
-            GcmBlockCipher gcmBlockCipher = new GcmBlockCipher(new AesEngine());
-            AeadParameters aeadParameters = new AeadParameters(
+            GcmBlockCipher gcmBlockCipher = new(new AesEngine());
+            AeadParameters aeadParameters = new(
                 new KeyParameter(Encoding.UTF8.GetBytes(AES_KEY)),
                 128,
                 Encoding.UTF8.GetBytes(nonce),

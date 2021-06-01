@@ -86,11 +86,17 @@
             </summary>
             <param name="Signature">私钥加密串-Wechatpay-Signature</param>
             <param name="signSourceString">验签名串-应答时间戳\n应答随机串\n应答报文主体\n</param>
+            <param name="publickey">公钥</param>
             <returns></returns>
         </member>
         <member name="T:WeChatRelatedSDK.Model.CertificatesResponse">
             <summary>
             返回成功数据
+            </summary>
+        </member>
+        <member name="P:WeChatRelatedSDK.Model.CertificatesResponse.data">
+            <summary>
+            实际证书数据
             </summary>
         </member>
         <member name="T:WeChatRelatedSDK.Model.data">
@@ -141,6 +147,11 @@
         <member name="P:WeChatRelatedSDK.Model.encrypt_certificateData.nonce">
             <summary>
             加密后的随机串
+            </summary>
+        </member>
+        <member name="T:WeChatRelatedSDK.Model.Merchant.ErroResultData">
+            <summary>
+            错误实体
             </summary>
         </member>
         <member name="P:WeChatRelatedSDK.Model.Merchant.ErroResultData.code">

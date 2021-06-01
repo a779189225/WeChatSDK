@@ -1,5 +1,8 @@
 ﻿namespace WeChatRelatedSDK.Model.Merchant
 {
+    /// <summary>
+    /// 错误实体
+    /// </summary>
     public class ErroResultData
     {
         /// <summary>
