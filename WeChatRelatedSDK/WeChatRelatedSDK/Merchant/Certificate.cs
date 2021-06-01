@@ -16,7 +16,6 @@ namespace WeChatRelatedSDK.Merchant
         public static data LatestCer(CertificatesResponse resultData)
         {
             int index = 0;
-            data data = new data();
             //加密请求消息中的敏感信息时，使用最新的平台证书（即：证书启用时间较晚的证书）
             if (resultData.data.Count > 1)
             {
@@ -29,7 +28,7 @@ namespace WeChatRelatedSDK.Merchant
                     index = 1;
                 }
             }
-            data = resultData.data[index];
+            data data = resultData.data[index];
             return data;
         }
 

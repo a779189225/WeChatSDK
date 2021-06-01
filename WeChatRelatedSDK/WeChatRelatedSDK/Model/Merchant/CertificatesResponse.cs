@@ -7,6 +7,9 @@ namespace WeChatRelatedSDK.Model
     /// </summary>
     public class CertificatesResponse
     {
+        /// <summary>
+        /// 实际证书数据
+        /// </summary>
         public List<data> data { get; set; }
     }
     /// <summary>
