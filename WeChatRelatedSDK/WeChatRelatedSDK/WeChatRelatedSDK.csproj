@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>微信相关SDK，包含微信最新的支付，商户开户意愿确认,</Description>
+    <Description>微信相关SDK，包含微信最新的支付，商户开户意愿确认,图片上传</Description>
     <Copyright>阡陌风狸</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>0.0.1</Version>
+    <Version>0.0.3</Version>
     <Company>阡陌风狸</Company>
     <Authors>阡陌风狸</Authors>
   </PropertyGroup>

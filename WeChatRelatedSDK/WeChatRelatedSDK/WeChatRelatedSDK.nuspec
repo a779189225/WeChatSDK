@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>WeChatRelatedSDK</id>
-    <version>0.0.1</version>
-    <title>微信相关SDK</title>
+    <version>0.0.3</version>
+    <title>微信v3版相关API接口帮助类</title>
     <authors>阡陌风狸</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <description>微信商户相关接口帮助类</description>
-    <releaseNotes>第一版</releaseNotes>
+    <description>微信商户相关接口帮助类，包含RSA签名，签名验证，图片上传等系列方法</description>
+    <releaseNotes>第二版</releaseNotes>
     <copyright>阡陌风狸</copyright>
     <tags>微信 最新接口 支付 证书 商户意愿确认</tags>
   </metadata>
